@@ -1,0 +1,84 @@
+{
+  "courses":[
+  {
+    "id": 1,
+    "title": "Beginner Guitar Master",
+    "slug": "beginner-guitar-mastery",
+    "description": "A complete beginner-friendly course to learn basic chords, strumming patterns, and simple songs.",
+    "price": 49.99,
+    "instructor": "Adeel Khan",
+    "isFeatured": true,
+    "image": "https://cdn.mos.cms.futurecdn.net/fthQF7xz7V5coEShUuRUQZ-1280-80.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Piano Essentials for Starters",
+    "slug": "piano-essentials-for-starters",
+    "description": "Learn the fundamentals of piano, hand placement, notes, and beginner melodies.",
+    "price": 59.99,
+    "instructor": "Hira Malik",
+    "isFeatured": true,
+    "image": "https://kraftmusic.com/cdn/shop/files/YAM-P525BKE.jpg?v=1696274402&width=3000"
+  },
+  {
+    "id": 3,
+    "title": "Advanced Music Production",
+    "slug": "advanced-music-production",
+    "description": "Master professional mixing, mastering, and sound design techniques for modern music.",
+    "price": 89.99,
+    "instructor": "Usman Raza",
+    "isFeatured": true,
+    "image": "https://cdn.mos.cms.futurecdn.net/fthQF7xz7V5coEShUuRUQZ-1280-80.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Vocal Training & Singing Basics",
+    "slug": "vocal-training-singing-basics",
+    "description": "Improve your vocal range, breathing control, and singing confidence with structured lessons.",
+    "price": 39.99,
+    "instructor": "Sarah Ahmed",
+    "isFeatured": true,
+    "image": "https://cdn.mos.cms.futurecdn.net/fthQF7xz7V5coEShUuRUQZ-1280-80.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Beat Making for Beginners",
+    "slug": "beat-making-for-beginners",
+    "description": "Learn how to create beats, use drum patterns, and compose catchy loops.",
+    "price": 45.00,
+    "instructor": "Ali Nawaz",
+    "isFeatured": true,
+    "image": "https://kraftmusic.com/cdn/shop/files/YAM-P525BKE.jpg?v=1696274402&width=3000"
+  },
+  {
+    "id": 6,
+    "title": "Classical Violin Foundations",
+    "slug": "classical-violin-foundations",
+    "description": "Start your violin journey with classical techniques and basic melodies.",
+    "price": 69.99,
+    "instructor": "Sana Tariq",
+    "isFeatured": false,
+    "image": "https://cdn.mos.cms.futurecdn.net/fthQF7xz7V5coEShUuRUQZ-1280-80.jpg"
+  },
+  {
+    "id": 7,
+    "title": "DJ Mixing & Live Performance",
+    "slug": "dj-mixing-live-performance",
+    "description": "Learn professional DJ skills including beatmatching, mixing, and live performance techniques.",
+    "price": 79.99,
+    "instructor": "DJ Rehan",
+    "isFeatured": true,
+    "image": "https://cdn.mos.cms.futurecdn.net/fthQF7xz7V5coEShUuRUQZ-1280-80.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Flute Basics for Beginners",
+    "slug": "flute-basics-for-beginners",
+    "description": "A simple and engaging course to learn flute breathing, tone, and beginner tunes.",
+    "price": 34.99,
+    "instructor": "Maryam Shaikh",
+    "isFeatured": false,
+    "image": "https://cdn.mos.cms.futurecdn.net/fthQF7xz7V5coEShUuRUQZ-1280-80.jpg"
+  }
+]
+}
