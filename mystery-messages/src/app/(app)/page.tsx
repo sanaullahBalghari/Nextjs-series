@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, MessageSquare, Lock, Sparkles, Github, Instagram, Send, Copy, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Autoplay from 'embla-carousel-autoplay';
-import messages from '@/messages.json';
+import messages from "@/Messages.json"
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import {
