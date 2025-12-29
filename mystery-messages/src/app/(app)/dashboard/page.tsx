@@ -294,13 +294,14 @@ function UserDashboard() {
           <CardContent>
             {messages.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {messages.map((message) => (
-                  <MessageCard
-                    key={message._id}
-                    message={message}
-                    onMessageDelete={handleDeleteMessage}
-                  />
-                ))}
+              {(messages as Message[]).map((message) => (
+  <MessageCard
+    key={message._id} // now TS knows _id is string
+    message={message}
+    onMessageDelete={handleDeleteMessage}
+  />
+))}
+
               </div>
             ) : (
               <div className="text-center py-12">
