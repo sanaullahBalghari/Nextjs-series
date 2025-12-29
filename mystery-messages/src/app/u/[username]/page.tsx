@@ -8,7 +8,6 @@ import { Loader2, Send, Sparkles, MessageCircle, ShieldCheck, User, Copy, CheckC
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { CardHeader, CardContent, Card } from '@/components/ui/card';
-import { useCompletion } from 'ai/react';
 import {
   Form,
   FormControl,
@@ -25,12 +24,6 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { messageSchema } from '@/schemas/messageSchema';
 
-const specialChar = '||';
-
-const parseStringMessages = (messageString: string): string[] => {
-  return messageString.split(specialChar);
-};
-
 const initialMessageString =
   "What's your favorite movie?||Do you have any pets?||What's your dream job?";
 
@@ -38,15 +31,11 @@ export default function SendMessage() {
   const params = useParams<{ username: string }>();
   const username = params.username;
 
-  const {
-    complete,
-    completion,
-    isLoading: isSuggestLoading,
-    error,
-  } = useCompletion({
-    api: '/api/suggest-messages',
-    initialCompletion: initialMessageString,
-  });
+  // ✅ State for suggestions
+  const [suggestions, setSuggestions] = useState<string[]>(
+    initialMessageString.split('||')
+  );
+  const [isSuggestLoading, setIsSuggestLoading] = useState(false);
 
   const form = useForm<z.infer<typeof messageSchema>>({
     resolver: zodResolver(messageSchema),
@@ -86,11 +75,37 @@ export default function SendMessage() {
     }
   };
 
+  // ✅ Updated fetch function to call our API
   const fetchSuggestedMessages = async () => {
+    setIsSuggestLoading(true);
     try {
-      complete('');
+      const response = await fetch('/api/suggest-messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.success && data.suggestions) {
+        setSuggestions(data.suggestions);
+        toast({
+          title: '✨ New suggestions generated!',
+          description: 'Click any suggestion to use it',
+        });
+      } else {
+        throw new Error(data.error || 'Failed to generate suggestions');
+      }
     } catch (error) {
       console.error('Error fetching messages:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to generate suggestions. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSuggestLoading(false);
     }
   };
 
@@ -213,28 +228,21 @@ export default function SendMessage() {
             </div>
           </CardHeader>
           <CardContent>
-            {error ? (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
-                <p className="font-semibold">Error loading suggestions</p>
-                <p className="text-sm">{error.message}</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {parseStringMessages(completion).map((message, index) => (
-                  <Button
-                    key={index}
-                    variant="outline"
-                    className="h-auto py-4 px-4 text-left justify-start hover:bg-purple-100 hover:border-purple-400 transition-all border-2 border-gray-200"
-                    onClick={() => handleMessageClick(message)}
-                  >
-                    <div className="flex items-start gap-3 w-full">
-                      <MessageCircle className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">{message}</span>
-                    </div>
-                  </Button>
-                ))}
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {suggestions.map((message, index) => (
+                <Button
+                  key={index}
+                  variant="outline"
+                  className="h-auto py-4 px-4 text-left justify-start hover:bg-purple-100 hover:border-purple-400 transition-all border-2 border-gray-200"
+                  onClick={() => handleMessageClick(message)}
+                >
+                  <div className="flex items-start gap-3 w-full">
+                    <MessageCircle className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm leading-relaxed">{message}</span>
+                  </div>
+                </Button>
+              ))}
+            </div>
           </CardContent>
         </Card>
 
