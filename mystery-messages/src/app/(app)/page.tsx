@@ -15,9 +15,17 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
+
+interface Bubble {
+  id: number;
+  size: number;
+  left: number;
+  delay: number;
+  duration: number;
+}
 export default function Home() {
   const [copied, setCopied] = useState(false);
-  const [bubbles, setBubbles] = useState([]);
+  const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const exampleUrl = "localhost:3000/u/username";
 
   // Generate floating bubbles
