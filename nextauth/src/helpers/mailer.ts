@@ -48,7 +48,8 @@ const mailOptions={
 
   };
 
-  const mailResponse=await transport.sendEmail(mailOptions);
+const mailResponse = await transport.sendMail(mailOptions);
+
   return mailResponse;
 
     } catch (error: any) {

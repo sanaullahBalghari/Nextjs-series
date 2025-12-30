@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import { connect } from "@/dbConfig/dbConfig";
 
 import User from "@/models/userModel";
