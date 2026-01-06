@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import { Vortex } from "../ui/vortex";
 export default function SkillsSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState("all");
@@ -66,17 +66,30 @@ export default function SkillsSection() {
     : technologies.filter(tech => tech.category === activeCategory);
 
   return (
-    <section className="min-h-screen bg-black text-white relative overflow-hidden py-16 sm:py-20 lg:py-24">
+<>
+
+    
+
+    <section id="skills" className="min-h-screen bg-black text-white relative overflow-hidden py-16 sm:py-20 lg:py-24">
+      
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-black to-blue-900/10" />
       
       {/* Animated Background Orbs */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
+      
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+      
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 sm:w-[600px] sm:h-[600px] bg-pink-500/5 rounded-full blur-3xl animate-pulse" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        
+          <Vortex
+        backgroundColor="black"
+        rangeY={800}
+        particleCount={500}
+        baseHue={120}
+        className="flex items-center flex-col justify-center px-2 md:px-10  py-4 w-full h-full"
+      >
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-sm sm:text-base font-semibold text-purple-400 uppercase tracking-wider mb-3 sm:mb-4">
@@ -89,9 +102,10 @@ export default function SkillsSection() {
             A comprehensive toolkit of modern technologies I use to build exceptional digital experiences
           </p>
         </div>
-
+ 
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-12 sm:mb-16 lg:mb-20 px-4">
+          
           {categories.map((category) => (
             <button
               key={category.id}
@@ -105,11 +119,17 @@ export default function SkillsSection() {
               {category.label}
             </button>
           ))}
+
+          
         </div>
 
-        {/* Technology Cloud */}
+           {/* Technology Cloud */}
+        
+          
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 lg:gap-6 px-4">
+
+            
             {filteredTechs.map((tech, index) => (
               <div
                 key={index}
@@ -150,12 +170,15 @@ export default function SkillsSection() {
                 {hoveredIndex === index && (
                   <div className="absolute inset-0 bg-white/10 rounded-full animate-ping" />
                 )}
+                
               </div>
             ))}
+            
           </div>
+          
         </div>
 
-        {/* Bottom CTA Section */}
+         {/* Bottom CTA Section */}
         <div className="text-center mt-16 sm:mt-20 lg:mt-24">
           <div className="inline-block bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-6 sm:p-8 lg:p-10 hover:border-purple-500/50 transition-all duration-300">
             <p className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
@@ -166,8 +189,15 @@ export default function SkillsSection() {
             </p>
           </div>
         </div>
+      </Vortex>
+       
+
+     
+
+       
 
       </div>
     </section>
+    </>
   );
 }
