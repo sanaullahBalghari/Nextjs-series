@@ -36,6 +36,11 @@ export function Navbar() {
       link: "/blog",
       icon: <BookOpen className="h-5 w-5 text-white" />,
     },
+    {
+      name: "Contact",
+      link: "/#contact",
+      icon: <BookOpen className="h-5 w-5 text-white" />,
+    },
  
   ];
 
