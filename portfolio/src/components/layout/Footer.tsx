@@ -10,14 +10,14 @@ export default function Footer() {
     { 
       name: "LinkedIn", 
       icon: Linkedin, 
-      url: "https://linkedin.com/in/yourprofile",
+      url: "https://www.linkedin.com/in/sana-ullah-akhonzada-606767279/",
       color: "from-blue-500 to-blue-700",
       hoverColor: "hover:shadow-blue-500/50"
     },
     { 
       name: "GitHub", 
       icon: Github, 
-      url: "https://github.com/yourprofile",
+      url: "https://github.com/sanaullahBalghari",
       color: "from-gray-600 to-gray-800",
       hoverColor: "hover:shadow-gray-500/50"
     },

@@ -3,14 +3,17 @@ import { useState } from "react";
 import { ArrowLeft, ExternalLink, Github, Check, Calendar, Tag, Users, TrendingUp, Zap } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
-
+import { use } from "react";
 // This would be used in Next.js app router: app/projects/[slug]/page.tsx
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+export default function ProjectDetailPage({ params }: PageProps) {
   const [activeTab, setActiveTab] = useState("overview");
   
-  // In real implementation, you'd use: const project = projects.find(p => p.slug === params.slug);
+  // In real implementation, you'd use:
+    const { slug } = use(params);
+
+  const project = projects.find(p => p.slug === slug);
   // For demo, using first project
-  const project = projects[0];
+  // const project = projects[0];
 
   if (!project) {
     return (

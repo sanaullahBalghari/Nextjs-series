@@ -12,10 +12,10 @@ export default function AllProjectsPage() {
   const categories = [
     { id: "all", label: "All Projects" },
     { id: "Full Stack", label: "Full Stack" },
-    { id: "Web App", label: "Web Apps" },
-    { id: "AI/ML", label: "AI/ML" },
-    { id: "Dashboard", label: "Dashboards" },
-    { id: "Analytics", label: "Analytics" },
+    { id: "Frontend", label: "Frontend" },
+    { id: "Backend", label: "Backend" },
+    { id: "AI/Automation", label: "AI/Automation" },
+  
   ];
 
   // Filter and search logic

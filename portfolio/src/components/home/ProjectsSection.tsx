@@ -11,9 +11,9 @@ export default function ProjectsSection() {
   const categories = [
     { id: "all", label: "All Projects" },
     { id: "Full Stack", label: "Full Stack" },
-    { id: "Web App", label: "Web Apps" },
-    { id: "AI/ML", label: "AI/ML" },
-    { id: "Dashboard", label: "Dashboards" },
+    { id: "Frontend ", label: "Frontend" },
+    { id: "Backend", label: "Backend" },
+    { id: "AI/Automation", label: "AI/Automation" },
   ];
 
   // Show only featured projects on home page
