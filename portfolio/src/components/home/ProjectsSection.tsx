@@ -11,7 +11,7 @@ export default function ProjectsSection() {
   const categories = [
     { id: "all", label: "All Projects" },
     { id: "Full Stack", label: "Full Stack" },
-    { id: "Frontend ", label: "Frontend" },
+    { id: "Frontend", label:"Frontend"},
     { id: "Backend", label: "Backend" },
     { id: "AI/Automation", label: "AI/Automation" },
   ];
