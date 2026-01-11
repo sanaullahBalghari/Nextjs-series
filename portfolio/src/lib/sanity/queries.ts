@@ -3,6 +3,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 // Image URL builder
+// Image URL builder
+// Image URL builder
 const builder = imageUrlBuilder(client)
 
 export function urlFor(source: SanityImageSource) {
