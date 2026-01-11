@@ -123,7 +123,7 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/sanaullahBalghari/Front-End-Ecommerce-Website",
     githubUrl: "https://github.com/sanaullahBalghari/Front-End-Ecommerce-Website",
     date: "2023-09",
-    featured: false,
+    featured: true,
     stats: {
     
       performance: "97%",
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/sanaullahBalghari/Ecom-salajeet-store",
     githubUrl: "https://github.com/sanaullahBalghari/Ecom-salajeet-store",
     date: "2024-01",
-    featured: false,
+    featured: true,
     stats: {
     
       performance: "94%",
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/sanaullahBalghari/Django-Res-Recepie-project",
     githubUrl: "https://github.com/sanaullahBalghari/Django-Res-Recepie-project",
     date: "2023-04",
-    featured: false,
+    featured: true,
     stats: {
     
       performance: "94%",
@@ -208,7 +208,7 @@ export const projects: Project[] = [
   liveUrl: "https://github.com/sanaullahBalghari/Nodejs-project",
   githubUrl: "https://github.com/sanaullahBalghari/Nodejs-project",
   date: "2024-08",
-  featured: false,
+  featured: true,
   stats: {
     performance: "95%"
   }
@@ -285,7 +285,8 @@ export const projects: Project[] = [
   stats: {
      performance: "93%"
   }
-}
+},
+
 
 
 ];
