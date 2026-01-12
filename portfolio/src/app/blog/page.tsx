@@ -1,21 +1,37 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, Filter, TrendingUp, Clock } from "lucide-react";
 import BlogCard from "@/components/ui/blogcard";
-import { blogs } from "@/data/blogs";
+import { getAllBlogs } from "@/lib/sanity/queries";
 
 export default function AllBlogsPage() {
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const [sortBy, setSortBy] = useState("newest");
 
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    try {
+      const data = await getAllBlogs();
+      setBlogs(data);
+    } catch (error) {
+      console.error("Failed to fetch blogs:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const categories = [
     { id: "all", label: "All Articles", count: blogs.length },
-    ...Array.from(new Set(blogs.map(b => b.category))).map(cat => ({
-      id: cat,
-      label: cat,
-      count: blogs.filter(b => b.category === cat).length
-    }))
+    { id: "Web Development", label: "Web Development", count: blogs.filter(b => b.category === "Web Development").length },
+    { id: "Backend", label: "Backend", count: blogs.filter(b => b.category === "Backend").length },
+    { id: "Frontend", label: "Frontend", count: blogs.filter(b => b.category === "Frontend").length },
+    { id: "AI/Automation", label: "AI/Automation", count: blogs.filter(b => b.category === "AI/Automation").length },
   ];
 
   // Filter logic
@@ -25,9 +41,9 @@ export default function AllBlogsPage() {
 
   if (searchQuery) {
     filteredBlogs = filteredBlogs.filter(blog => 
-      blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      blog.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      blog.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.tags?.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   }
 
@@ -37,7 +53,18 @@ export default function AllBlogsPage() {
   } else if (sortBy === "oldest") {
     filteredBlogs.sort((a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime());
   } else if (sortBy === "popular") {
-    filteredBlogs.sort((a, b) => b.views - a.views);
+    filteredBlogs.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-500 border-r-transparent mb-4"></div>
+          <p className="text-gray-400">Loading blogs...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -83,7 +110,7 @@ export default function AllBlogsPage() {
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
-              <option value="popular">Most Popular</option>
+              <option value="popular">Most Liked</option>
             </select>
           </div>
         </div>
@@ -123,7 +150,7 @@ export default function AllBlogsPage() {
           {sortBy === "popular" && (
             <div className="flex items-center gap-2 text-sm text-purple-400">
               <TrendingUp className="w-4 h-4" />
-              <span className="hidden sm:inline">Sorted by popularity</span>
+              <span className="hidden sm:inline">Sorted by likes</span>
             </div>
           )}
           
@@ -139,7 +166,7 @@ export default function AllBlogsPage() {
         {filteredBlogs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredBlogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog._id} blog={blog} />
             ))}
           </div>
         ) : (
@@ -160,26 +187,7 @@ export default function AllBlogsPage() {
         )}
 
         {/* Newsletter CTA */}
-        {filteredBlogs.length > 0 && (
-          <div className="mt-16 sm:mt-20 lg:mt-24 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8 sm:p-12 text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Stay Updated
-            </h3>
-            <p className="text-sm sm:text-base text-gray-400 mb-6 max-w-xl mx-auto">
-              Subscribe to get notified when I publish new articles about web development and technology
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-sm focus:outline-none focus:border-purple-500 transition-colors"
-              />
-              <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        )}
+      
       </div>
     </div>
   );

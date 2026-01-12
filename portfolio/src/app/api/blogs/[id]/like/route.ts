@@ -10,10 +10,10 @@ function getClientIP(request: NextRequest): string {
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const blogId = params.id
+     const { id: blogId } = await context.params
     const userIP = getClientIP(request)
 
     // Fetch current blog data

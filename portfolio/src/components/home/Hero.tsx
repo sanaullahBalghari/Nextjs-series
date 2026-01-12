@@ -516,19 +516,19 @@ export default function PortfolioHero() {
             <div className="flex flex-wrap gap-4 sm:gap-6 justify-center lg:justify-start pt-6 sm:pt-8 text-sm px-2">
               <div className="text-center min-w-[80px]">
                 <div className="text-xl sm:text-2xl font-bold text-purple-400">
-                  <AnimatedCounter end={5} suffix="+" />
+                  <AnimatedCounter end={2} suffix="+" />
                 </div>
                 <div className="text-xs sm:text-sm text-gray-500">Years Experience</div>
               </div>
               <div className="text-center min-w-[80px]">
                 <div className="text-xl sm:text-2xl font-bold text-blue-400">
-                  <AnimatedCounter end={50} suffix="+" />
+                  <AnimatedCounter end={20} suffix="+" />
                 </div>
                 <div className="text-xs sm:text-sm text-gray-500">Projects</div>
               </div>
               <div className="text-center min-w-[80px]">
                 <div className="text-xl sm:text-2xl font-bold text-green-400">
-                  <AnimatedCounter end={100} suffix="%" />
+                  <AnimatedCounter end={90} suffix="%" />
                 </div>
                 <div className="text-xs sm:text-sm text-gray-500">Client Satisfaction</div>
               </div>

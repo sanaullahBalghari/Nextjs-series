@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 
 export const FloatingNav = ({
@@ -72,10 +73,12 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-lg md:text-lg lg:text-lg">{navItem.name}</span>
           </a>
         ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white dark:text-white px-4 py-2 rounded-full">
-          <span>Hire Me</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button>
+       <Link href="#contact">
+  <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white dark:text-white px-4 py-2 rounded-full">
+    <span>Hire Me</span>
+    <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
+  </button>
+</Link>
       </motion.div>
     </AnimatePresence>
   );
