@@ -17,7 +17,7 @@ export default function ProjectsSection() {
   ];
 
   // Show only featured projects on home page
-  const featuredProjects = projects.filter(project => project.featured);
+const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
   
   const filteredProjects = activeFilter === "all" 
     ? featuredProjects 

@@ -14,37 +14,38 @@ export default function SkillsSection() {
     { name: "TailwindCSS", category: "frontend", color: "from-teal-400 to-cyan-500", size: "medium" },
     { name: "HTML5", category: "frontend", color: "from-orange-500 to-red-500", size: "small" },
     { name: "CSS3", category: "frontend", color: "from-blue-400 to-blue-600", size: "small" },
-    { name: "Redux", category: "frontend", color: "from-purple-500 to-purple-700", size: "small" },
-    
+   
     // Backend
     { name: "Node.js", category: "backend", color: "from-green-500 to-green-700", size: "large" },
     { name: "Express", category: "backend", color: "from-gray-600 to-gray-800", size: "medium" },
     { name: "MongoDB", category: "backend", color: "from-green-600 to-emerald-700", size: "medium" },
     { name: "PostgreSQL", category: "backend", color: "from-blue-600 to-indigo-700", size: "medium" },
-    { name: "GraphQL", category: "backend", color: "from-pink-500 to-rose-600", size: "small" },
+    { name: "Django", category: "backend", color: "from-pink-500 to-rose-600", size: "small" },
     { name: "REST API", category: "backend", color: "from-indigo-500 to-purple-600", size: "small" },
-    { name: "Prisma", category: "backend", color: "from-slate-600 to-slate-800", size: "small" },
+    { name: "DRF", category: "backend", color: "from-slate-600 to-slate-800", size: "small" },
     
     // DevOps & Tools
-    { name: "Docker", category: "devops", color: "from-blue-500 to-sky-600", size: "medium" },
-    { name: "AWS", category: "devops", color: "from-orange-400 to-amber-600", size: "medium" },
-    { name: "Git", category: "devops", color: "from-orange-600 to-red-700", size: "medium" },
-    { name: "CI/CD", category: "devops", color: "from-teal-500 to-emerald-600", size: "small" },
-    { name: "Nginx", category: "devops", color: "from-green-600 to-green-800", size: "small" },
-    { name: "Linux", category: "devops", color: "from-yellow-500 to-orange-600", size: "small" },
+    { name: "Docker", category: "AI/Automation", color: "from-blue-500 to-sky-600", size: "medium" },
+    { name: "AWS", category: "AI/Automation", color: "from-orange-400 to-amber-600", size: "medium" },
+    { name: "Git", category: "AI/Automation", color: "from-orange-600 to-red-700", size: "medium" },
+    { name: "n8n", category: "AI/Automation", color: "from-teal-500 to-emerald-600", size: "small" },
+    { name: "Python", category: "AI/Automation", color: "from-teal-500 to-emerald-600", size: "small" },
+    { name: "Pandas", category: "AI/Automation", color: "from-teal-500 to-emerald-600", size: "small" },
+    { name: "Numpay", category: "AI/Automation", color: "from-teal-500 to-emerald-600", size: "small" },
+    { name: "Linux", category: "AI/Automation", color: "from-yellow-500 to-orange-600", size: "small" },
     
     // Tools
     { name: "VS Code", category: "tools", color: "from-blue-500 to-cyan-600", size: "small" },
     { name: "Figma", category: "tools", color: "from-purple-500 to-pink-600", size: "small" },
     { name: "Postman", category: "tools", color: "from-orange-500 to-red-600", size: "small" },
-    { name: "Jest", category: "tools", color: "from-red-600 to-rose-700", size: "small" },
+
   ];
 
   const categories = [
     { id: "all", label: "All Technologies" },
     { id: "frontend", label: "Frontend" },
     { id: "backend", label: "Backend" },
-    { id: "devops", label: "DevOps" },
+    { id: "AI/Automation", label: "AI/Automation" },
     { id: "tools", label: "Tools" },
   ];
 

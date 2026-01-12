@@ -63,7 +63,7 @@ export default function AboutSection() {
               </h4>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                With over 5 years of experience in full-stack development, I specialize in building scalable, high-performance web applications. My expertise spans across modern JavaScript frameworks, backend technologies, and cloud infrastructure.
+                With over 2 years of experience in full-stack development, I specialize in building scalable, high-performance web applications. My expertise spans across modern JavaScript frameworks, backend technologies, and cloud infrastructure.
               </p>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">

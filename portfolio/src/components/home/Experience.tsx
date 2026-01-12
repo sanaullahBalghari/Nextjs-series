@@ -8,36 +8,39 @@ export default function ExperienceSection() {
   const experiences = [
     {
       id: 0,
-      role: "Senior Full Stack Developer",
-      company: "Tech Innovations Inc.",
-      location: "San Francisco, CA",
-      period: "2023 - Present",
+      role: "Full Stack Developer",
+      company: "Logicexer Pvt Ltd, Kotli, AJK",
+      location: "Kotli Azad Kashmir",
+      period: "june-2023 - Aug-2023",
       type: "Full-time",
-      description: "Leading development of enterprise-scale applications with modern tech stack. Architecting scalable solutions and mentoring junior developers.",
-      achievements: [
-        "Built microservices architecture serving 1M+ users",
-        "Reduced API response time by 60% through optimization",
-        "Led team of 5 developers on major product launch",
-        "Implemented CI/CD pipeline reducing deployment time by 80%"
-      ],
-      technologies: ["React", "Node.js", "AWS", "Docker", "MongoDB"],
+      description:
+    "Worked as a Full Stack Developer Intern, contributing to the development and maintenance of web applications using modern technologies.  focusing on feature support, bug fixing, and performance improvements.",
+  achievements: [
+    "Assisted in building and maintaining web applications using MERN stack and Django",
+    "Supported deployment and maintenance of multiple web development projects",
+    "Helped optimize APIs and improve response time through code and query improvements",
+    "Gained hands-on experience working in a team-based and agile development environment"
+  ],
+      technologies: ["React", "Django", "DRF", "Node.js", "MongoDB","SQLITE"],
       color: "from-purple-500 to-pink-500"
     },
     {
       id: 1,
-      role: "Full Stack Developer",
-      company: "Digital Solutions Ltd.",
-      location: "Remote",
-      period: "2021 - 2023",
+      role: "Web Developer",
+      company: "Netzing Technology (Tech Startup)",
+      location: "Kotli Azad Kashmir",
+      period: "Jul-2025 - Aug-2025",
       type: "Full-time",
-      description: "Developed and maintained multiple client projects, focusing on responsive web applications and RESTful APIs.",
-      achievements: [
-        "Delivered 15+ client projects on time and within budget",
-        "Improved application performance by 45%",
-        "Introduced TypeScript to improve code quality",
-        "Mentored 3 junior developers"
-      ],
-      technologies: ["Next.js", "Express", "PostgreSQL", "TailwindCSS"],
+      description: "Contributed to the development and maintenance of web applications using the MERN stack and Django. Actively supported the team in POS and sales-related projects by handling feature updates, while collaborating closely with senior developers",
+     achievements: [
+
+  "Assisted in improving application performance and fixing critical bugs",
+  "Supported POS and sales system modules including reports and UI enhancements",
+  "Collaborated with senior developers to maintain and enhance existing codebases",
+  "Worked with Next.js and modern JavaScript practices to improve code reliability"
+],
+
+      technologies: ["Next.js", "Express","Node.js","n8n","Djnago", "PostgreSQL", "TailwindCSS"],
       color: "from-blue-500 to-cyan-500"
     },
    
