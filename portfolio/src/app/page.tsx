@@ -22,15 +22,7 @@ export default function Home() {
       <FeaturedBlogsSection/>
       <ContactSection/>
 
-      {/*
-        Next sections baad mein:
-        <About />
-        <Skills />
-        <FeaturedProjects />
-        <LatestBlogs />
-        <Experience />
-        <Contact />
-      */}
+     
     </main>
   );
 }

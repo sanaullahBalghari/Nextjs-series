@@ -11,7 +11,7 @@ export default function ExperienceSection() {
       role: "Full Stack Developer",
       company: "Logicexer Pvt Ltd, Kotli, AJK",
       location: "Kotli Azad Kashmir",
-      period: "june-2023 - Aug-2023",
+      period: "june-2024 - Aug-2024",
       type: "Full-time",
       description:
     "Worked as a Full Stack Developer Intern, contributing to the development and maintenance of web applications using modern technologies.  focusing on feature support, bug fixing, and performance improvements.",
