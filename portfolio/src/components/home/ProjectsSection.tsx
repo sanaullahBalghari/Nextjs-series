@@ -1,27 +1,19 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import ProjectCard from "../ui/projectcard";
 import { projects } from "@/data/projects";
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [randomProjects, setRandomProjects] = useState<typeof projects>([]);
 
-  const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "Full Stack", label: "Full Stack" },
-    { id: "Frontend", label:"Frontend"},
-    { id: "Backend", label: "Backend" },
-    { id: "AI/Automation", label: "AI/Automation" },
-  ];
-
-  // Show only featured projects on home page
-const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
-  
-  const filteredProjects = activeFilter === "all" 
-    ? featuredProjects 
-    : featuredProjects.filter(project => project.category === activeFilter);
+  // Pick 3 random projects on client only (hydration safe)
+  useEffect(() => {
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    setRandomProjects(shuffled.slice(0, 3));
+  }, []);
 
   return (
     <section className="min-h-screen bg-black text-white relative overflow-hidden py-16 sm:py-20 lg:py-24">
@@ -45,26 +37,9 @@ const featuredProjects = projects.filter(project => project.featured).slice(0, 3
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-12 sm:mb-16">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveFilter(category.id)}
-              className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-xs sm:text-sm lg:text-base transition-all duration-300 ${
-                activeFilter === category.id
-                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/50 scale-105"
-                  : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white border border-gray-700"
-              }`}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          {filteredProjects.map((project) => (
+          {randomProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
@@ -79,7 +54,6 @@ const featuredProjects = projects.filter(project => project.featured).slice(0, 3
           </Link>
         </div>
 
-      
       </div>
     </section>
   );
