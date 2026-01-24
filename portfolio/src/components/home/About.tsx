@@ -14,6 +14,8 @@ export default function AboutSection() {
   return (
     <section id="about" className="min-h-screen bg-black text-white relative overflow-hidden py-16 sm:py-20 lg:py-24">
       {/* Background Effects */}
+      {/* Background Effects */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-black to-blue-900/10" />
       <div className="absolute top-1/4 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-blue-500/5 rounded-full blur-3xl" />
