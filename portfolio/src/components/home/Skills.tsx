@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { Vortex } from "../ui/vortex";
 export default function SkillsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+ 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
 
   const technologies = [
@@ -49,7 +50,7 @@ export default function SkillsSection() {
     { id: "tools", label: "Tools" },
   ];
 
-  const getSizeClasses = (size) => {
+  const getSizeClasses = (size: string) => {
     switch (size) {
       case "large":
         return "px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg lg:text-xl";
