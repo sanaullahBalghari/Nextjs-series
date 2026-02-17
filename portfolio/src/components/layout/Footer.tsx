@@ -4,7 +4,7 @@ import { Mail, Linkedin, Github, Instagram, Heart, ArrowUp, Send } from "lucide-
 import { BackgroundLines } from "../ui/background-lines";
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [hoveredSocial, setHoveredSocial] = useState(null);
+  const [hoveredSocial, setHoveredSocial] = useState<number | null>(null);
 
   const socialLinks = [
     { 
