@@ -8,10 +8,10 @@ const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
 });
 
 // Animated Counter Component
-function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
+function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const counterRef = useRef(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,10 +37,10 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
   useEffect(() => {
     if (!isVisible) return;
 
-    let startTime;
-    let animationFrame;
+   let startTime: number | undefined;
+let animationFrame: number;
 
-    const animate = (timestamp) => {
+    const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / duration, 1);
@@ -73,7 +73,7 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
 }
 
 // Auto-typing effect component
-function AutoTypeText({ texts, typingSpeed = 100, deletingSpeed = 50, pauseDuration = 2000 }) {
+function AutoTypeText({ texts, typingSpeed = 100, deletingSpeed = 50, pauseDuration = 2000 }: { texts: string[]; typingSpeed?: number; deletingSpeed?: number; pauseDuration?: number }) {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
