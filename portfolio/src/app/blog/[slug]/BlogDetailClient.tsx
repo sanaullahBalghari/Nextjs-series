@@ -6,6 +6,24 @@ import BlogCard from "@/components/ui/blogcard";
 import { PortableText } from '@portabletext/react';
 
 // Custom components for PortableText rendering
+
+type Blog = {
+  _id: string;
+  title: string;
+  category: string;
+  publishedAt: string;
+  readTime: string;
+  likes?: number;
+  coverImage: string;
+  tags?: string[];
+  body: any;
+  author: {
+    name: string;
+    avatar: string;
+    role: string;
+  };
+};
+
 const portableTextComponents = {
   block: {
     h1: ({children}: any) => <h1 className="text-4xl font-bold mb-6 mt-8">{children}</h1>,
@@ -62,7 +80,7 @@ const portableTextComponents = {
   },
 };
 
-export default function BlogDetailClient({ blog, relatedBlogs }: { blog: any, relatedBlogs: any[] }) {
+export default function BlogDetailClient({ blog, relatedBlogs }: { blog: Blog, relatedBlogs: Blog[]}) {
 
       console.log("TAGS 👉", blog.tags);
   const [isLiked, setIsLiked] = useState(false);
@@ -274,13 +292,24 @@ export default function BlogDetailClient({ blog, relatedBlogs }: { blog: any, re
             <div className="mb-12 pb-12 border-b border-gray-800">
               <h3 className="text-lg font-bold mb-4">Tags</h3>
               <div className="flex flex-wrap gap-3">
-  {blog.tags && blog.tags.length > 0 ? (
+
+                {Array.isArray(blog.tags) && blog.tags.length > 0 ? (
+  blog.tags.map((tag: string, i: number) => (
+    <span key={i} className="text-sm px-3 py-1 bg-gray-800 rounded-full">
+      #{tag}
+    </span>
+  ))
+) : (
+  <span className="text-gray-500">No tags</span>
+)}
+
+  {/* {blog.tags && blog.tags.length > 0 ? (
   blog.tags.map((tag, i) => (
     <span key={i} className="...">#{tag}</span>
   ))
 ) : (
   <span className="text-gray-500">No tags</span>
-)}
+)} */}
 
 
               </div>
