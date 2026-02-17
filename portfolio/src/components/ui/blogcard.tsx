@@ -218,6 +218,7 @@ export default function BlogCard({ blog, variant = "default" }: BlogCardProps) {
             <img
               src={blog.author.avatar}
               alt={blog.author.name}
+             
               className="w-8 h-8 rounded-full border-2 border-purple-500/50"
             />
             <span className="text-sm font-medium text-gray-300">{blog.author.name}</span>

@@ -135,15 +135,15 @@ export default function BlogDetailClient({ blog, relatedBlogs }: { blog: Blog, r
     return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   };
 
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      "Web Development": "from-blue-500 to-cyan-500",
-      "Backend": "from-green-500 to-emerald-500",
-      "Frontend": "from-orange-500 to-yellow-500",
-      "AI/Automation": "from-purple-500 to-pink-500"
-    };
-    return colors[category] || "from-gray-500 to-gray-700";
+const getCategoryColor = (category: string) => {
+  const colors: Record<string, string> = {
+    "Web Development": "from-blue-500 to-cyan-500",
+    "Backend": "from-green-500 to-emerald-500",
+    "Frontend": "from-orange-500 to-yellow-500",
+    "AI/Automation": "from-purple-500 to-pink-500"
   };
+  return colors[category] || "from-gray-500 to-gray-700";
+};
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
