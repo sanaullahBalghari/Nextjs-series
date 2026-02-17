@@ -5,7 +5,9 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import { use } from "react";
 // This would be used in Next.js app router: app/projects/[slug]/page.tsx
-export default function ProjectDetailPage({ params }: PageProps) {
+
+
+export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const [activeTab, setActiveTab] = useState("overview");
   
   // In real implementation, you'd use:
@@ -30,16 +32,16 @@ export default function ProjectDetailPage({ params }: PageProps) {
     );
   }
 
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      "Full Stack": "from-purple-500 to-blue-500",
-      "Web App": "from-green-500 to-emerald-500",
-      "AI/ML": "from-pink-500 to-rose-500",
-      "Dashboard": "from-orange-500 to-red-500",
-      "Analytics": "from-cyan-500 to-blue-500",
-    };
-    return colors[category] || "from-gray-500 to-gray-700";
+const getCategoryColor = (category: string) => {
+  const colors: Record<string, string> = {
+    "Full Stack": "from-purple-500 to-blue-500",
+    "Web App": "from-green-500 to-emerald-500",
+    "AI/ML": "from-pink-500 to-rose-500",
+    "Dashboard": "from-orange-500 to-red-500",
+    "Analytics": "from-cyan-500 to-blue-500",
   };
+  return colors[category] || "from-gray-500 to-gray-700";
+};
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
