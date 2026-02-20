@@ -30,15 +30,15 @@ export default function BlogCard({ blog, variant = "default" }: BlogCardProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [isLiking, setIsLiking] = useState(false);
 
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      "Web Development": "from-blue-500 to-cyan-500",
-      "Backend": "from-green-500 to-emerald-500",
-      "Frontend": "from-orange-500 to-yellow-500",
-      "AI/Automation": "from-purple-500 to-pink-500"
-    };
-    return colors[category] || "from-gray-500 to-gray-700";
+const getCategoryColor = (category: string) => {
+  const colors: Record<string, string> = {
+    "Web Development": "from-blue-500 to-cyan-500",
+    "Backend": "from-green-500 to-emerald-500",
+    "Frontend": "from-orange-500 to-yellow-500",
+    "AI/Automation": "from-purple-500 to-pink-500"
   };
+  return colors[category] || "from-gray-500 to-gray-700";
+};
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

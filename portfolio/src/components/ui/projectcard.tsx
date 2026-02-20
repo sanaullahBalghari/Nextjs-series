@@ -25,17 +25,17 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      "Full Stack": "from-purple-500 to-blue-500",
-      "Web App": "from-green-500 to-emerald-500",
-      "AI/ML": "from-pink-500 to-rose-500",
-      "Dashboard": "from-orange-500 to-red-500",
-      "Analytics": "from-cyan-500 to-blue-500",
-      "Mobile": "from-indigo-500 to-purple-500"
-    };
-    return colors[category] || "from-gray-500 to-gray-700";
+ const getCategoryColor = (category: string) => {
+  const colors: Record<string, string> = {
+    "Full Stack": "from-purple-500 to-blue-500",
+    "Web App": "from-green-500 to-emerald-500",
+    "AI/ML": "from-pink-500 to-rose-500",
+    "Dashboard": "from-orange-500 to-red-500",
+    "Analytics": "from-cyan-500 to-blue-500",
+    "Mobile": "from-indigo-500 to-purple-500"
   };
+  return colors[category] || "from-gray-500 to-gray-700";
+};
 
   return (
     <div
