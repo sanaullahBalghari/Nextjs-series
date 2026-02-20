@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
+import { Color, Scene, Fog, PerspectiveCamera, Vector3, Group } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -64,8 +64,8 @@ let numbersOfRings = [0];
 
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef();
-  const [isInitialized, setIsInitialized] = useState(false);
+const groupRef = useRef<Group>(null);
+ const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
     pointSize: 1,
@@ -85,13 +85,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
   };
 
   // Initialize globe only once
-  useEffect(() => {
-    if (!globeRef.current && groupRef.current) {
-      globeRef.current = new ThreeGlobe();
-      (groupRef.current as any).add(globeRef.current);
-      setIsInitialized(true);
-    }
-  }, []);
+useEffect(() => {
+  if (!globeRef.current && groupRef.current) {
+    globeRef.current = new ThreeGlobe();
+    (groupRef.current as Group).add(globeRef.current);
+    setIsInitialized(true);
+  }
+}, []);
 
   // Build material when globe is initialized or when relevant props change
   useEffect(() => {
