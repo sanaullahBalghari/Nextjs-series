@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
+
 export const FloatingNav = ({
   navItems,
   className,
@@ -17,7 +18,7 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
+     icon?: React.ReactElement
   }[];
   className?: string;
 }) => {
