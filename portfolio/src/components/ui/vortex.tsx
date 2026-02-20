@@ -19,8 +19,8 @@ interface VortexProps {
 
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef(null);
-  const animationFrameId = useRef<number>();
+ const containerRef = useRef<HTMLDivElement>(null);
+ const animationFrameId = useRef<number | undefined>(undefined);
   const particleCount = props.particleCount || 700;
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
