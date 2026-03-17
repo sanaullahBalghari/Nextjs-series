@@ -1,4 +1,5 @@
 // src/app/page.tsx
+// src/app/page.tsx
 import AboutSection from "@/components/home/About";
 import ExperienceSection from "@/components/home/Experience";
 import FeaturedBlogsSection from "@/components/home/FeaturedBlogsSection";
