@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 
 // GET single blog
 // GET single blog
+// GET single blog
 export async function GET(req, { params }) {
   await connectDB();
 
