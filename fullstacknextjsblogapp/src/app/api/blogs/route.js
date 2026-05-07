@@ -3,6 +3,7 @@ import Blog from "../../../models/Blog";
 import { NextResponse } from "next/server";
 
 // GET all blogs
+// GET all blogs
 export async function GET() {
   await connectDB();
   const blogs = await Blog.find();
