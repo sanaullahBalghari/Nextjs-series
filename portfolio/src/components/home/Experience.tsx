@@ -11,7 +11,7 @@ export default function ExperienceSection() {
       role: "Full Stack Developer",
       company: "Logicexer Pvt Ltd, Kotli, AJK",
       location: "Kotli Azad Kashmir",
-      period: "june-2024 - Aug-2024",
+      period: "jul-2024 - Dec-2024",
       type: "Full-time",
       description:
     "Worked as a Full Stack Developer Intern, contributing to the development and maintenance of web applications using modern technologies.  focusing on feature support, bug fixing, and performance improvements.",
@@ -29,7 +29,26 @@ export default function ExperienceSection() {
       role: "Web Developer",
       company: "Netzing Technology (Tech Startup)",
       location: "Kotli Azad Kashmir",
-      period: "Jul-2025 - Aug-2025",
+      period: "Aug-2025 - Jan-2026",
+      type: "Full-time",
+      description: "Contributed to the development and maintenance of web applications using the MERN stack and Django. Actively supported the team in POS and sales-related projects by handling feature updates, while collaborating closely with senior developers",
+     achievements: [
+
+  "Assisted in improving application performance and fixing critical bugs",
+  "Supported POS and sales system modules including reports and UI enhancements",
+  "Collaborated with senior developers to maintain and enhance existing codebases",
+  "Worked with Next.js and modern JavaScript practices to improve code reliability"
+],
+
+      technologies: ["Next.js", "Express","Node.js","n8n","Djnago", "PostgreSQL", "TailwindCSS"],
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      id: 2,
+      role: "Web Developer",
+      company: "MA Digital Marketing Agency",
+      location: "Rawalpindi Pakistan",
+      period: "jul-2026 - present",
       type: "Full-time",
       description: "Contributed to the development and maintenance of web applications using the MERN stack and Django. Actively supported the team in POS and sales-related projects by handling feature updates, while collaborating closely with senior developers",
      achievements: [
